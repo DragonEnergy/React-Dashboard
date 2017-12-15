@@ -2,10 +2,10 @@ import React from 'react';
 import Header from './Header';
 
 const App = (props) =>{
+  console.log(props);
   return(
     <div className="container">
-      <Header />
-      {props.children}
+        {props.children}
     </div>
   );
 }

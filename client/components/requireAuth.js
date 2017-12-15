@@ -7,7 +7,7 @@ export default (WrappedComponent) =>{
     componentWillUpdate(nextProps){
 
       if(!nextProps.data.loading && !nextProps.data.user){
-        history.push('/login');
+        this.props.history.push('/login');
       }
     }
     render(){

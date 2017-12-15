@@ -4,11 +4,12 @@ import ApolloClient from 'apollo-client';
 import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import {ApolloProvider} from 'react-apollo';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 //import {Router, hashHistory, Route, IndexRoute} from 'react-router';
 
 import App from './components/App';
+import Header from './components/Header';
 import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignupForm';
 import Dashboard from './components/Dashboard';
@@ -28,14 +29,18 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={App}/>
-          <Route path="/login" component={LoginForm}/>
-          <Route path="/signup" component={SignUpForm}/>
-          <Route path="/dashboard" component={requireAuth(Dashboard)}/>
-        </Switch>
-      </BrowserRouter>
+      <HashRouter>
+        <div>
+          <Header />
+          <main>
+            <Route exact path="/" component={App}/>
+            <Route path="/login" component={LoginForm}/>
+            <Route path="/signup" component={SignUpForm}/>
+            <Route path="/dashboard" component={requireAuth(Dashboard)}/>
+          </main>
+
+        </div>
+      </HashRouter>
     </ApolloProvider>
 
   );
