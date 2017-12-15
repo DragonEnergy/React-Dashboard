@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {graphql} from 'react-apollo';
 import mutation from '../mutations/Logout';
 import query from '../queries/CurrentUser';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class Header extends Component{
 

@@ -3,7 +3,6 @@ import {graphql} from 'react-apollo';
 import mutation from '../mutations/Login';
 import query from '../queries/CurrentUser';
 import AuthForm from './AuthForm';
-import {HashRouter} from 'react-router-dom';
 
 class LoginForm extends Component{
 
@@ -17,7 +16,7 @@ class LoginForm extends Component{
 
     if(!this.props.data.user && nextProps.data.user){
       //redirect to dashboard
-      HashRouter.push('/dashboard');
+      this.props.history.push('/dashboard');
     }
   }
 

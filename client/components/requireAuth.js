@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {graphql} from 'react-apollo';
 import currentUserQuery from '../queries/CurrentUser';
-import {HashRouter} from 'react-router-dom';
 
 export default (WrappedComponent) =>{
   class RequireAuth extends Component{
     componentWillUpdate(nextProps){
 
       if(!nextProps.data.loading && !nextProps.data.user){
-        HashRouter.push('/login');
+        history.push('/login');
       }
     }
     render(){
