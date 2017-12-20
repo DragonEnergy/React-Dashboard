@@ -32,13 +32,10 @@ const Root = () => {
       <HashRouter>
         <div>
           <Header />
-          <main>
             <Route exact path="/" component={App}/>
             <Route path="/login" component={LoginForm}/>
             <Route path="/signup" component={SignUpForm}/>
             <Route path="/dashboard" component={requireAuth(Dashboard)}/>
-          </main>
-
         </div>
       </HashRouter>
     </ApolloProvider>

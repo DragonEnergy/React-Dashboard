@@ -33,7 +33,7 @@ class SignUpForm extends Component{
 
   render(){
     return(
-      <div>
+      <div className="container">
         <h3>Sign Up</h3>
         <AuthForm errors={this.state.errors} onSubmit={this.onSubmit.bind(this)}/>
       </div>
