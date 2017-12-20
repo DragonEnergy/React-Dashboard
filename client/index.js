@@ -5,6 +5,7 @@ import { HttpLink } from 'apollo-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import {ApolloProvider} from 'react-apollo';
 import { HashRouter, Route, Switch } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //import {Router, hashHistory, Route, IndexRoute} from 'react-router';
 
@@ -14,7 +15,7 @@ import LoginForm from './components/LoginForm';
 import SignUpForm from './components/SignupForm';
 import Dashboard from './components/Dashboard';
 import requireAuth from './components/requireAuth';
-
+import styles from './styles.css';
 
 
 const client = new ApolloClient({
@@ -28,18 +29,19 @@ const client = new ApolloClient({
 
 const Root = () => {
   return (
-    <ApolloProvider client={client}>
-      <HashRouter>
-        <div>
-          <Header />
-            <Route exact path="/" component={App}/>
-            <Route path="/login" component={LoginForm}/>
-            <Route path="/signup" component={SignUpForm}/>
-            <Route path="/dashboard" component={requireAuth(Dashboard)}/>
-        </div>
-      </HashRouter>
-    </ApolloProvider>
-
+    <MuiThemeProvider>
+      <ApolloProvider client={client}>
+        <HashRouter>
+          <div>
+            <Header />
+              <Route exact path="/" component={App}/>
+              <Route path="/login" component={LoginForm}/>
+              <Route path="/signup" component={SignUpForm}/>
+              <Route path="/dashboard" component={requireAuth(Dashboard)}/>
+          </div>
+        </HashRouter>
+      </ApolloProvider>
+    </MuiThemeProvider>
   );
 };
 
