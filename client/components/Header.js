@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom';
 
 class Header extends Component{
 
+
+
   onLogoutClick(){
     this.props.mutate({
       refetchQueries:[{query}]
@@ -36,6 +38,8 @@ class Header extends Component{
       );
     }
   }
+
+
 
   render(){
     return(

@@ -5,3 +5,7 @@ nav{
 .dashBoardTabs{
   margin-top: 30px;
 }
+
+.adminDrawer div{
+  position: relative !important;
+}
